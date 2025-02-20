@@ -11,14 +11,37 @@
       <h1>Gerador de senhas</h1>
       <label for="tamanho">Tamanho da Senha</label>
       <input type="number" id="tamanho" value="12" min="6" max="20" />
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" id="includeUppercase" checked /> Letras
+          Maiúsculas
+        </label>
+        <label>
+          <input type="checkbox" id="includeLowercase" checked /> Letras
+          Minúsculas
+        </label>
+        <label>
+          <input type="checkbox" id="includeNumbers" checked /> Números
+        </label>
+        <label>
+          <input type="checkbox" id="includeSpecial" checked /> Caracteres
+          Especiais
+        </label>
+      </div>
       <button onclick="gerarSenha()">Gerar Senha</button>
+      <button onclick="gerarFrase()">Gerar Frase</button>
       <div class="resultado">
         <p>Senha Gerada:</p>
         <input type="text" id="senha" readonly />
+        <button onclick="copiarSenha()">Copiar</button>
       </div>
+      <div class="strength">
+        <p>Força da Senha: <span id="forcaSenha">-</span></p>
+      </div>
+      <button onclick="toggleMode()">Alterar Modo Claro/Escuro</button>
     </div>
     <footer>
-      <p>&copy;</p>
+      <p>&copy; 2025 Gerador de Senhas.</p>
     </footer>
     <script src="script.js"></script>
   </body>

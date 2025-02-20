@@ -1,6 +1,8 @@
+/*Modo claro*/
 body {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -8,10 +10,80 @@ body {
   margin: 0;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+body.dark-mode {
+  background-image: linear-gradient(to top, #1c1c1c, #3d3d3d);
+  color: whitesmoke;
+}
+
+.container {
   text-align: center;
-  padding: 10px 0;
+  background-image: linear-gradient(to bottom, #0a581c, #1aed80);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+body.dark-mode .container {
+  background-image: linear-gradient(to bottom, #444, #666);
+  color: whitesmoke;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+}
+
+input[type='number'],
+input[type='text'] {
+  background-color: #85aca1;
+  width: 80%;
+  padding: 9px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+body.dark-mode input[type='number'],
+body.dark-mode input[type='text'] {
+  background-color: #555;
+  color: whitesmoke;
+}
+
+button {
+  padding: 10px 20px;
+  background: hsla(120, 12%, 29%, 0.621);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: hsla(120, 12%, 13%, 0.621);
+}
+
+.checkbox-group {
+  text-align: left;
+  margin: 10px 0;
+}
+
+.checkbox-group label {
+  display: block;
+  margin: 5px 0;
+}
+
+.resultado {
+  margin-top: 20px;
+}
+
+input[type='text'] {
+  background-color: #85aca1;
+  cursor: allowed;
+}
+
+.strength {
+  margin-top: 10px;
 }
