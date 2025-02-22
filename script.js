@@ -35,31 +35,67 @@ function gerarSenha() {
   avaliarForcaSenha(senha);
 }
 
-function gerarFrase() {
+function gerarPalavra() {
   const tamanho = parseInt(document.getElementById('tamanho').value);
   if (isNaN(tamanho) || tamanho < 6 || tamanho > 20) {
-    alert('Por favor, insira um tamanho válido (entre 6 e 20). ');
+    alert('Por favor, insira um tamanho válido (entre 6 e 20).');
     return;
   }
-}
 
-const incluirMaiusculas = document.getElementById('includeUppercase').cheked;
-const incluirMinusculas = document.getElementById('includeLowercase').cheked;
-const incluirNumeros = document.getElementById('incluirNumbers').cheked;
-const includeSpeciais = document.getElementById('includeSpecial').checked;
+  const incluirMaiusculas = document.getElementById('includeUppercase').checked;
+  const incluirMinusculas = document.getElementById('includeLowercase').checked;
+  const incluirNumeros = document.getElementById('includeNumbers').checked;
+  const incluirEspeciais = document.getElementById('includeSpecial').checked;
 
-const vogais = 'aeiou';
-const consoantes = 'bcdfghjklmnpqrstvwxyz';
-const caracteresMaiusculos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const numeros = '0123456789';
-const caracteresEspeciais = '!@#$%^&*()_+[]{}|;:,.<>?';
+  const vogais = 'aeiou';
+  const consoantes = 'bcdfghjklmnpqrstvwxyz';
+  const caracteresMaiusculos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const caracteresMinusculos = 'abcdefghijklmnopqrstuvwxyz'; // Adicionei esta linha
+  const numeros = '0123456789';
+  const caracteresEspeciais = '!@#$%^&*()_+[]{}|;:,.<>?';
 
-if (caracteres === ''){
-    alert('Por favor, selecione pelo menos um tipo de caractere');
+  let caracteres = vogais + consoantes;
+  if (incluirMaiusculas) caracteres += caracteresMaiusculos;
+  if (incluirMinusculas) caracteres += caracteresMinusculos;
+  if (incluirNumeros) caracteres += numeros;
+  if (incluirEspeciais) caracteres += caracteresEspeciais;
+
+  if (caracteres === '') {
+    alert('Por favor, selecione pelo menos um tipo de caractere.');
     return;
+  }
+
+  let palavra = '';
+  let useVogal = true;
+  for (let i = 0; i < tamanho; i++) {
+    if (useVogal) {
+      const indiceAleatorio = Math.floor(Math.random() * vogais.length);
+      palavra += vogais.charAt(indiceAleatorio);
+      useVogal = false;
+    } else {
+      const indiceAleatorio = Math.floor(Math.random() * consoantes.length);
+      palavra += consoantes.charAt(indiceAleatorio);
+      useVogal = true;
+    }
+  }
+
+  const caracteresExtras = [];
+  if (incluirNumeros) caracteresExtras.push(...numeros.split(''));
+  if (incluirEspeciais) caracteresExtras.push(...caracteresEspeciais.split(''));
+
+  for (let i = 0; i < palavra.length; i++) {
+    if (Math.random() < 0.2 && caracteresExtras.length > 0) {
+      const indiceExtra = Math.floor(Math.random() * caracteresExtras.length);
+      palavra =
+        palavra.substring(0, i) +
+        caracteresExtras[indiceExtra] +
+        palavra.substring(i + 1);
+    }
+  }
+
+  document.getElementById('senha').value = palavra;
+  avaliarForcaSenha(palavra);
 }
-
-
 
 function copiarSenha() {
   const senha = document.getElementById('senha');
