@@ -86,3 +86,38 @@ input[type='text'] {
 .strength {
   margin-top: 10px;
 }
+
+/*testilo para telas menores*/
+
+@media (max-width: 600px) {
+  body {
+    justify-content: flex-start;
+    height: auto;
+    padding: 20px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 15px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  input[type='number'],
+  input[type='text'] {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .resultado {
+    margin-top: 15px;
+  }
+
+  .strength {
+    margin-top: 10px;
+  }
+}
