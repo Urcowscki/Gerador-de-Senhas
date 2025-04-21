@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barriecito&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Gerador de Senhas</title>
   </head>
@@ -16,30 +22,47 @@
           <input type="checkbox" id="includeUppercase" checked /> Letras
           Maiúsculas
         </label>
+
         <label>
           <input type="checkbox" id="includeLowercase" checked /> Letras
           Minúsculas
         </label>
+
         <label>
           <input type="checkbox" id="includeNumbers" checked /> Números
         </label>
+
         <label>
           <input type="checkbox" id="includeSpecial" checked /> Caracteres
           Especiais
         </label>
       </div>
+
       <button onclick="gerarSenha()">Gerar Senha</button>
       <button onclick="gerarPalavra()">Gerar Palavra</button>
+
       <div class="resultado">
         <p>Senha Gerada:</p>
         <input type="text" id="senha" readonly />
         <button onclick="copiarSenha()">Copiar</button>
       </div>
+
       <div class="strength">
         <p>Força da Senha: <span id="forcaSenha">-</span></p>
       </div>
-      <button onclick="toggleMode()">Alterar Modo Claro/Escuro</button>
     </div>
+
+    <div class="menu-expansivo">
+      <button class="menu-toggle" onclick="toggleMenu()">Temas</button>
+      <div class="menu-opcoes">
+        <button onclick="mudarTema('verde')">Original</button>
+        <button onclick="mudarTema('azul')">Azul</button>
+        <button onclick="mudarTema('roxo')">Roxo</button>
+        <button onclick="mudarTema('vermelho')">Vermelho</button>
+        <button onclick="mudarTema('escuro')">Escuro</button>
+      </div>
+    </div>
+
     <footer>
       <p>&copy; 2025 Gerador de Senhas.</p>
     </footer>

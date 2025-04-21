@@ -1,6 +1,6 @@
 /*Modo claro*/
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: roboto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,6 +15,22 @@ body.dark-mode {
   color: whitesmoke;
 }
 
+/*Temas*/
+body.azul {
+  background-image: linear-gradient(to top, #2d3d9b, #95c9ff);
+}
+
+body.roxo {
+  background-image: linear-gradient(to top, #2d1432, #ba22e0);
+}
+
+body.vermelho {
+  background-image: linear-gradient(to top, #a40000, #fc4a4a);
+}
+body.escuro {
+  background-image: linear-gradient(to top, #2c2828, #565151);
+}
+
 .container {
   text-align: center;
   background-image: linear-gradient(to bottom, #0a581c, #1aed80);
@@ -23,9 +39,70 @@ body.dark-mode {
   border-radius: 8px;
 }
 
-body.dark-mode .container {
-  background-image: linear-gradient(to bottom, #444, #666);
+body.azul .container {
+  background-image: linear-gradient(to top, #95c9ff, #2d3d9b);
+  color: #fff;
+}
+
+body.roxo .container {
+  background-image: linear-gradient(to top, #ba22e0, #2d1432);
+  color: #fff;
+}
+body.vermelho .container {
+  background-image: linear-gradient(to top, #fc4a4a, #a40000);
+  color: #fff;
+}
+
+body.escuro .container {
+  background-image: linear-gradient(to top, #565151, #2c2828);
   color: whitesmoke;
+}
+
+/*estilo do menu expansivo*/
+
+.menu-expansivo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.menu-toggle {
+  padding: 10px 15px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.menu-toggle:hover {
+  background-color: #646363;
+}
+
+.menu-opcoes {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  background-color: transparent;
+  border-radius: 5px;
+  position: absolute;
+  right: 0.5;
+}
+
+.menu-opcoes button {
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu-opcoes button:hover {
+  background-color: #656464;
 }
 
 h1 {
@@ -87,7 +164,7 @@ input[type='text'] {
   margin-top: 10px;
 }
 
-/*testilo para telas menores*/
+/*estilo para telas menores*/
 
 @media (max-width: 600px) {
   body {

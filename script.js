@@ -120,6 +120,19 @@ function avaliarForcaSenha(senha) {
   }
 }
 
-function toggleMode() {
-  document.body.classList.toggle('dark-mode');
+function toggleMenu() {
+  const menuOpcoes = document.querySelector('.menu-opcoes');
+  if (menuOpcoes.style.display === 'block') {
+    menuOpcoes.style.display = 'none';
+  } else {
+    menuOpcoes.style.display = 'block';
+  }
+}
+
+function mudarTema(cor) {
+  console.log(`Alterando para o tema: ${cor}`);
+  const body = document.body;
+  body.classList.remove('dark-mode');
+  document.body.classList.remove('azul', 'roxo', 'vermelho', 'escuro', 'verde');
+  document.body.classList.add(cor);
 }
